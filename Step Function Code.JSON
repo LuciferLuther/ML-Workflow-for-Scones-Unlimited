@@ -1,0 +1,38 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Serialize Image",
+  "States": {
+    "Serialize Image": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.body",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:us-east-1:396467607299:function:serializeImageData:$LATEST"
+      },
+      "Next": "infer Serialized Data"
+    },
+    "infer Serialized Data": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.body",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:us-east-1:396467607299:function:InferImageData:$LATEST"
+      },
+      "Next": "Threshold Filter Bypass",
+      "InputPath": "$.body"
+    },
+    "Threshold Filter Bypass": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:us-east-1:396467607299:function:filter_low_confidence_inferences:$LATEST"
+      },
+      "End": true,
+      "InputPath": "$.body"
+    }
+  }
+}
