@@ -11,8 +11,8 @@
 The motive of the project is to build a Machine Learning Model that performs image classification through ML workflows using Amazon's Sage Maker. The Step Functions 
 linked with the lambda scripts are used to automate various tasks of Machine Learning process from Data Preparation, Model Creation, Model Deployment and Inference.
 
-## :: Overview Process and AWS Workflow
-![Overview](AWS Machine Learning.png)
+## :crystal_ball: Overview Process and AWS Workflow
+<img src="AWS Machine Learning.png"/>
 
 ## :warning: TechStack/framework used
 
@@ -47,11 +47,13 @@ object.
 as a JSON Object.
 3. The __Filtering Low-Confidence Inferences__ takes the inference data from 2 and filters only the images that meet the defined threshold.  
 
-## Execution Flow of the Step Function 
-![Execution Event History of ML Workflow](Execution Flow of the Step Function .png)
-
 ## Step Functions Graph
-![Step Functions Graph](Step Functions Graph.png "Step Functions") ![Step Functions Graph Working](Step Functions Workflow (Success).png "Step Functions - After Execution")
+<img src="Step Functions Graph.png"/>
+
+<img src="Step Functions Workflow (Success).png"  width="30%" height="30%"/> 
+
+## Execution Flow of the Step Function 
+<img src="Execution Flow of the Step Function .png"/>
 
 ## :point_down: Support me here!
 <a href="https://www.buymeacoffee.com/nadersalamC" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
